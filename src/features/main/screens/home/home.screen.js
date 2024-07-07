@@ -7,6 +7,13 @@ import SlideShow from "./components/slideshow.component";
 import UnmissableOffers from "./components/unmissableOffers.component";
 import Widgets from "./components/widgets.component";
 import NewIn from "./components/newIn.component";
+import Activities from "./components/activity/activities.component";
+import FeaturedDealOnActivities from "./components/activity/featuredDealsOnActivities.component";
+import FeaturedDealOnAuto from "./components/featuredDealsOnAuto.component";
+import NeedMoreDealOnActivities from "./components/activity/needMoreDealsOnActivities.component";
+import Beauty from "./components/beauty/beauty.component";
+import FeaturedDealOnBeauty from "./components/beauty/FeaturedDealsOnBeauty.component";
+import BestSellers from "./components/bestSellers.component";
 
 const HomeScreen = ({ navigation }) => {
 
@@ -50,10 +57,50 @@ const HomeScreen = ({ navigation }) => {
         <ScrollView>
             <SlideShow />
             <Text style={styles.headerTitle}>Unmissable Offers</Text>
+
             <UnmissableOffers />
+
             <Widgets />
+
             <Text style={styles.headerTitle}>New In</Text>
             <NewIn />
+
+            <Text style={styles.headerTitle}>Activities</Text>
+            <Activities />
+
+            <View style={styles.headerView}>
+                <Text style={styles.headerTitle}>Featured deals on Activities</Text>
+                <Text style={styles.viewAllText}>View all ▶</Text>
+            </View>
+            <FeaturedDealOnActivities />
+
+            <View style={styles.headerView}>
+                <Text style={styles.headerTitle}>Featured deals on Auto</Text>
+                <Text style={styles.viewAllText}>View all ▶</Text>
+            </View>
+            <FeaturedDealOnAuto />
+
+
+            {/* <NeedMoreDealOnActivities /> */}
+            <Text style={styles.headerTitle}>Beauty</Text>
+            <Beauty />
+
+            <View style={styles.headerView}>
+                <Text style={styles.headerTitle}>Featured deals on Beauty</Text>
+                <Text style={styles.viewAllText}>View all ▶</Text>
+            </View>
+            <FeaturedDealOnBeauty />
+
+
+            <Text style={styles.headerTitle}>Need more deals On Beauty</Text>
+
+
+            <View style={styles.headerView}>
+                <Text style={styles.headerTitle}>Best Sellers</Text>
+                <Text style={styles.viewAllText}>View all ▶</Text>
+            </View>
+            <BestSellers />
+
         </ScrollView>
     )
 }
@@ -80,7 +127,16 @@ const styles = StyleSheet.create({
         marginLeft: 20,
         marginTop: 15,
         marginBottom: 20,
-        fontSize: 20,
-        fontWeight: 'bold'
+        fontSize: 18,
+        fontWeight: 'bold',
+        flex: 1
+    },
+    headerView: {
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    viewAllText: {
+        marginRight: 10,
+        color: '#405D72'
     }
 })
