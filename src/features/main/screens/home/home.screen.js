@@ -1,5 +1,5 @@
 import { React, useEffect } from "react";
-import { View, Text, TouchableOpacity, StyleSheet, FlatList, ScrollView } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 import { Octicons } from '@expo/vector-icons';
 import { FontAwesome6 } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
@@ -10,15 +10,16 @@ import NewIn from "./components/newIn.component";
 import Activities from "./components/activity/activities.component";
 import FeaturedDealOnActivities from "./components/activity/featuredDealsOnActivities.component";
 import FeaturedDealOnAuto from "./components/featuredDealsOnAuto.component";
-import NeedMoreDealOnActivities from "./components/activity/needMoreDealsOnActivities.component";
 import Beauty from "./components/beauty/beauty.component";
 import FeaturedDealOnBeauty from "./components/beauty/FeaturedDealsOnBeauty.component";
 import BestSellers from "./components/bestSellers.component";
+import Food from "./components/food/food.component";
+import FeaturedDealsOnFood from "./components/food/featuredDealsOnFood.component";
+import { Searchbar } from "react-native-paper";
 
 const HomeScreen = ({ navigation }) => {
 
     useEffect(() => {
-        // Set header options when the component mounts
         navigation.setOptions({
             headerRight: () => renderRightHeaderComponent(),
             headerLeft: () => renderLeftHeaderComponent(),
@@ -33,9 +34,6 @@ const HomeScreen = ({ navigation }) => {
                 <TouchableOpacity onPress={() => { navigation.navigate('Details') }}>
                     <Text style={{ fontSize: 24, fontWeight: 'bold', marginLeft: 10 }}>Dubai ▼</Text>
                 </TouchableOpacity>
-            </View>
-            <View>
-                {/* <TextInput style={{ flex: 1 }} /> */}
             </View>
         </>
     );
@@ -55,6 +53,9 @@ const HomeScreen = ({ navigation }) => {
     return (
 
         <ScrollView>
+
+            <Searchbar style={styles.searchBar} placeholder="Choose cobone..." />
+
             <SlideShow />
             <Text style={styles.headerTitle}>Unmissable Offers</Text>
 
@@ -101,6 +102,18 @@ const HomeScreen = ({ navigation }) => {
             </View>
             <BestSellers />
 
+            {/* { Food} */}
+            <Text style={styles.headerTitle}>Food</Text>
+            <Food />
+
+
+            <View style={styles.headerView}>
+                <Text style={styles.headerTitle}>Featured deals on Food</Text>
+                <Text style={styles.viewAllText}>View all ▶</Text>
+            </View>
+            <FeaturedDealsOnFood />
+
+
         </ScrollView>
     )
 }
@@ -138,5 +151,14 @@ const styles = StyleSheet.create({
     viewAllText: {
         marginRight: 10,
         color: '#405D72'
+    },
+    searchBar: {
+        marginHorizontal: 15,
+        borderRadius: 10,
+        marginTop: 10,
+        label: 'dasd',
+        color: 'red',
+        width: 360,
+        placeholder: 'sad'
     }
 })

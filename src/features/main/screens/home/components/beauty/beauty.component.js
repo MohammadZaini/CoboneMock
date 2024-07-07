@@ -1,5 +1,5 @@
 import { React } from "react";
-import ItemCardV2 from "../itemCardV2.component";
+import ItemCardV2 from "../shared components/itemCardV2.component";
 
 const Beauty = () => {
     return (

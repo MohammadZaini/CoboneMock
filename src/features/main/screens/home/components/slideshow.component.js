@@ -5,19 +5,6 @@ const SlideShow = () => {
 
     const imagePaths = [require('../../../../../../assets/Cobone1.jpg'), require('../../../../../../assets/Cobone2.jpg'), require('../../../../../../assets/Cobone3.jpg')]
 
-    const [currentIndex, setCurrentIndex] = useState(0);
-
-    useEffect(() => {
-        const timer = setInterval(() => {
-            // Calculate the next index
-            const nextIndex = (currentIndex + 1) % imagePaths.length;
-            setCurrentIndex(nextIndex);
-        }, 3000); // Change slide every 3 seconds (3000 ms)
-
-        // Clear interval on component unmount
-        return () => clearInterval(timer);
-    }, [currentIndex]);
-
     return (
 
         <View>
@@ -35,14 +22,6 @@ const SlideShow = () => {
                         />
                     )
                 }}
-
-                initialScrollIndex={currentIndex}
-                getItemLayout={(data, index) => ({
-                    length: Dimensions.get('window').width,
-                    offset: Dimensions.get('window').width * index,
-                    index,
-                })}
-
             />
 
         </View>

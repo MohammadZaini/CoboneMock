@@ -3,21 +3,6 @@ import { View, Text, FlatList, Image, Dimensions, StyleSheet } from "react-nativ
 
 const Widgets = () => {
 
-    const widgetCollection = [{
-        image: require('../../../../../../assets/Cobone2.jpg'),
-        section: "FLASH SALE1! Wild Wadi Waterpark"
-    },
-
-    {
-        image: require('../../../../../../assets/Cobone3.jpg'),
-        section: "FLASH SALE2! Wild Wadi Waterpark"
-    },
-
-    {
-        image: require('../../../../../../assets/Cobone1.jpg'),
-        section: "FLASH SALE3! Wild Wadi Waterpark"
-    }]
-
     return (
         <View style={styles.mainView}>
             <View style={styles.widgetView}>

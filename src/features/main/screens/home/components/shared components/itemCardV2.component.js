@@ -4,7 +4,7 @@ import { View, Text, FlatList, Image, StyleSheet, Dimensions } from "react-nativ
 const ItemCardV2 = ({ backgroundColor }) => {
 
     const activities = [{
-        image: require('../../../../../../assets/Cobone2.jpg'),
+        image: require('../../../../../../../assets/Cobone2.jpg'),
         activityName: 'Dubai Crocodile Park Ticket',
         price: "AED 89"
     }]

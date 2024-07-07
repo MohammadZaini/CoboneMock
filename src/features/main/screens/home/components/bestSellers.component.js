@@ -1,5 +1,5 @@
 import { React } from "react";
-import ItemCard from "./itemCard.component";
+import ItemCard from "./shared components/itemCard.component";
 
 const BestSellers = () => {
     return (
