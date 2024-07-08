@@ -15,46 +15,50 @@ import FeaturedDealOnBeauty from "./components/beauty/FeaturedDealsOnBeauty.comp
 import BestSellers from "./components/bestSellers.component";
 import Food from "./components/food/food.component";
 import FeaturedDealsOnFood from "./components/food/featuredDealsOnFood.component";
-import { Searchbar } from "react-native-paper";
-
+import { Searchbar, TextInput } from "react-native-paper";
+import { FontAwesome } from '@expo/vector-icons';
+import { SafeAreaView } from "react-native-safe-area-context";
 const HomeScreen = ({ navigation }) => {
 
     useEffect(() => {
         navigation.setOptions({
-            headerRight: () => renderRightHeaderComponent(),
-            headerLeft: () => renderLeftHeaderComponent(),
-            headerTitle: ""
+            header: () => <CustomHeader />,
+            headerStyle: {
+                height: 150, // Adjust the height as needed
+            },
         });
     }, [navigation]);
 
-    const renderLeftHeaderComponent = () => (
+    const CustomHeader = () => (
         <>
-            <View style={styles.headerView}>
-                <FontAwesome6 name="location-dot" size={24} color="black" style={styles.leftIcon} />
-                <TouchableOpacity onPress={() => { navigation.navigate('Details') }}>
-                    <Text style={{ fontSize: 24, fontWeight: 'bold', marginLeft: 10 }}>Dubai ▼</Text>
-                </TouchableOpacity>
-            </View>
+            <SafeAreaView style={{ flexDirection: 'row', marginTop: 20 }} >
+                <View style={{ flexDirection: 'row', justifyContent: 'flex-start', flex: 1 }}>
+                    <FontAwesome6 name="location-dot" size={24} color="black" style={{ marginLeft: 10, marginRight: 10 }} />
+                    <TouchableOpacity onPress={() => navigation.navigate('Details')}>
+                        <Text style={{ fontSize: 20 }}>Dubai ▼</Text>
+                    </TouchableOpacity>
+                </View>
+
+                <View style={{ flexDirection: 'row', justifyContent: 'flex-end', marginBottom: 10 }}>
+                    <TouchableOpacity onPress={() => { /* Handle right icon press */ }}>
+                        <Octicons name="bell-fill" size={24} color="black" style={{ marginRight: 10 }} />
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => { /* Handle right icon press */ }}>
+                        <FontAwesome5 name="shopping-cart" size={24} color="black" style={{ marginRight: 10 }} />
+                    </TouchableOpacity>
+                </View>
+            </SafeAreaView>
+            <Searchbar
+                style={styles.searchBar}
+                placeholder="Choose cobone..."
+            />
         </>
-    );
 
-    const renderRightHeaderComponent = () => (
-        <View style={{ flexDirection: 'row' }}>
-            <TouchableOpacity onPress={() => {/* Handle right icon press */ }} style={styles.headerView}>
-                <Octicons name="bell-fill" size={24} color="black" style={styles.rightIcon} />
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={() => {/* Handle right icon press */ }} style={styles.headerView}>
-                <FontAwesome5 name="shopping-cart" size={24} color="black" style={styles.rightIcon} />
-            </TouchableOpacity>
-        </View>
     );
 
     return (
 
         <ScrollView>
-
-            <Searchbar style={styles.searchBar} placeholder="Choose cobone..." />
 
             <SlideShow />
             <Text style={styles.headerTitle}>Unmissable Offers</Text>
@@ -160,5 +164,6 @@ const styles = StyleSheet.create({
         color: 'red',
         width: 360,
         placeholder: 'sad'
-    }
+    },
+
 })
